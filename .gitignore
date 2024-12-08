@@ -1,0 +1,72 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux specific files
+*~
+.*.swp
+.*.swo
+.cache
+.Trash-*
+
+# Environment variables
+.env
+.env.local
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+*.sql
+
+# Test results
+*.coverage
+*.cover
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.lcov
+*.pyo
+
+# Unit test / coverage reports
+htmlcov/
+*.egg-info/
+.tox/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE specific files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Deployment files
+*.bak
+*.orig
+*.rej
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
