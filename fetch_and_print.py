@@ -23,6 +23,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+
 class MessageMonitor:
     def __init__(self):
         """Initialize the message monitor with API credentials and base URL."""
