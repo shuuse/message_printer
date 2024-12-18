@@ -24,13 +24,18 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class MessageMonitor:
-    def __init__(self):
+    def __init__(self, base_url: str = None):
         """Initialize the message monitor with API credentials and base URL."""
-        self.base_url = Config.get_base_url()
+        self.base_url = base_url or Config.get_base_url()
         self.headers = {
             **Config.get_headers(),
             "X-API-Key": os.getenv("API_KEY")
         }
+        # Printer configuration from config file
+        self.printer_identifier = Config.get_printer_identifier()
+        self.model = Config.get_printer_model()
+        self.qlr = BrotherQLRaster(self.model)
+        self.heading_image_path = Config.get_heading_image_path()
 
 
     def get_unread_messages(self) -> Optional[List[Dict]]:
