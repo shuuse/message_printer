@@ -10,6 +10,7 @@ from brother_ql.backends.helpers import send
 from brother_ql.conversion import convert
 import time
 import sys
+from config import Config
 
 
 # Load environment variables from .env file
@@ -23,19 +24,13 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class MessageMonitor:
-    def __init__(self, base_url: str = "https://message-api-0rws.onrender.com"):
+    def __init__(self):
         """Initialize the message monitor with API credentials and base URL."""
-        self.base_url = base_url
+        self.base_url = Config.get_base_url()
         self.headers = {
-            "X-API-Key": os.getenv("API_KEY"),  # Retrieve API key from environment variable
-            "Content-Type": "application/json"
+            **Config.get_headers(),
+            "X-API-Key": os.getenv("API_KEY")
         }
-        # Printer configuration
-        self.printer_ip = '192.168.1.204'
-        self.printer_identifier = f'tcp://{self.printer_ip}:9100'  # Default port for Brother network printers
-        self.model = 'QL-810W'
-        self.qlr = BrotherQLRaster(self.model)
-        self.heading_image_path = 'heading.png'
 
 
     def get_unread_messages(self) -> Optional[List[Dict]]:
