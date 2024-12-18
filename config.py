@@ -1,5 +1,4 @@
 # config.py
-
 class Config:
     """Application configuration."""
     
